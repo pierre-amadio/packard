@@ -24,7 +24,7 @@ class Noun(Packard):
   extras=None
 
   def firstDeclension(self):
-    print("first declension")
+    self.declenstion=1
     if len(self.typeCode)==2:
       self.extras="1st declension (fem. in -η)"
     else:
@@ -38,6 +38,7 @@ class Noun(Packard):
         self.extras="masc. with nom. in -ας"
 
   def secondDeclension(self):
+    self.declension=2
     if len(self.typeCode)==2:
       self.extras="2nd declension (masc./fem.)"
     else:
@@ -45,6 +46,14 @@ class Noun(Packard):
         Only N2N
       """
       self.extras="neuters (in -ον)"
+
+  def thirdDeclension(self):
+    self.declension=3
+    self.extras="3rd declension"
+    """
+      TODO: N3D,E,G,H,I,K,M,N,P,R,S,T,U,V,W  
+      indicate the kind of third declension
+    """
 
   def parseRawCode(self):
     self.WordType="Noun"

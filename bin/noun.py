@@ -70,4 +70,4 @@ class Noun(Packard):
         self.thirdDeclension()
 
     print(self.parseCode)
-    print(super().parseParseCode(self.parseCode))
+    print(super().parseTriCode(self.parseCode))

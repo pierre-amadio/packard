@@ -29,7 +29,7 @@ class Packard:
   def parseRawCode(self):
     raise NotImplementedError("parseRawCode not implemented in virtual class")
 
-  def parseParseCode(self,tricode):
+  def parseTriCode(self,tricode):
     """
       Noun, Pronouns, adjective and participes use the same 3 collumn code to store case/number/gender
     """

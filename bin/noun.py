@@ -50,5 +50,3 @@ class Noun(Packard):
         self.secondDeclension()
       if self.declension==3:
         self.thirdDeclension()
-    
-

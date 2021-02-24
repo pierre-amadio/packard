@@ -13,6 +13,7 @@ class Packard:
   parseCode=None
   typeCode=None
   wordType=None
+  fullDescription=None
 
   def __init__(self, rawcode):
     self.rawCode = rawcode

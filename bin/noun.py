@@ -21,20 +21,21 @@ from packard import *
 
 class Noun(Packard):
   declension=None
+  extras=None
 
   def firstDeclension(self):
     print("first declension")
     if len(self.typeCode)==2:
-      print("1st declension (fem. in -η)")
+      self.extras="1st declension (fem. in -η)"
     else:
       if self.typeCode[2]=='A':
-        print("A")
+        self.extras="stem ending in -α (fem.)"
       elif self.typeCode[2]=='M':
-        print("M")
+        self.extras="masc. with nom. in -ης"
       elif self.typeCode[2]=='S':
-        print("S")
+        self.extras="stem in -η, nom. in -α (f.)"
       elif slef.typecode[2]=='T':
-        print("T")
+        self.extras="masc. with nom. in -ας"
 
 
 

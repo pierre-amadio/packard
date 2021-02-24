@@ -24,9 +24,9 @@ class Noun(Packard):
   extras=None
 
   def firstDeclension(self):
-    self.declenstion=1
+    self.declension=1
     if len(self.typeCode)==2:
-      self.extras="1st declension (fem. in -η)"
+      self.extras="fem. in -η"
     else:
       if self.typeCode[2]=='A':
         self.extras="stem ending in -α (fem.)"
@@ -40,7 +40,7 @@ class Noun(Packard):
   def secondDeclension(self):
     self.declension=2
     if len(self.typeCode)==2:
-      self.extras="2nd declension (masc./fem.)"
+      self.extras="(masc./fem.)"
     else:
       """
         Only N2N
@@ -49,7 +49,7 @@ class Noun(Packard):
 
   def thirdDeclension(self):
     self.declension=3
-    self.extras="3rd declension"
+    self.extras=""
     """
       TODO: N3D,E,G,H,I,K,M,N,P,R,S,T,U,V,W  
       indicate the kind of third declension
@@ -59,6 +59,7 @@ class Noun(Packard):
     self.WordType="Noun"
     if len(self.typeCode)==1:
       self.declension=0
+      self.extras="indeclinable proper noun"
     else:
       self.declension=int(self.typeCode[1])
       if self.declension==1:

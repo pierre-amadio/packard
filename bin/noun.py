@@ -51,7 +51,7 @@ class Noun(Packard):
     self.declension=3
     self.extras=""
     """
-      TODO: N3D,E,G,H,I,K,M,N,P,R,S,T,U,V,W  
+      TODO: N3D,E,G,H,I,K,M,N,P,R,S,T,U,V,W
       indicate the kind of third declension
     """
 
@@ -68,3 +68,6 @@ class Noun(Packard):
         self.secondDeclension()
       if self.declension==3:
         self.thirdDeclension()
+
+    print(self.parseCode)
+    print(super().parseParseCode(self.parseCode))

@@ -29,4 +29,34 @@ class Packard:
   def parseRawCode(self):
     raise NotImplementedError("parseRawCode not implemented in virtual class")
 
+  def parseParseCode(self,tricode):
+    """
+      Noun, Pronouns, adjective and participes use the same 3 collumn code to store case/number/gender
+    """
+    out={}
+    if tricode[0]=="N":
+      out["case"]="Nominative"
+    elif tricode[0]=="G":
+      out["case"]="Genitive"
+    elif tricode[0]=="D":
+      out["case"]="Dative"
+    elif tricode[0]=="A":
+      out["case"]="Accusative"
+    elif tricode[0]=="V":
+      out["case"]="Vocative"
 
+    if tricode[1]=="S":
+      out["number"]="Singular"
+    elif tricode[1]=="D":
+      out["number"]="Dual"
+    elif tricode[1]=="P":
+      out["number"]="Plural"
+
+    if tricode[2]=="M":
+      out["gender"]="Masculine"
+    elif tricode[2]=="F":
+      out["gender"]="Feminine"
+    elif tricode[2]=="N":
+      out["gender"]="Neutral"
+
+    return(out)

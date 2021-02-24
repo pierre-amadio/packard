@@ -37,7 +37,14 @@ class Noun(Packard):
       elif slef.typecode[2]=='T':
         self.extras="masc. with nom. in -ας"
 
-
+  def secondDeclension(self):
+    if len(self.typeCode)==2:
+      self.extras="2nd declension (masc./fem.)"
+    else:
+      """
+        Only N2N
+      """
+      self.extras="neuters (in -ον)"
 
   def parseRawCode(self):
     self.WordType="Noun"

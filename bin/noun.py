@@ -61,7 +61,7 @@ class Noun(Packard):
     """
 
   def parseRawCode(self):
-    self.WordType="Noun"
+    self.wordType="Noun"
     if len(self.typeCode)==1:
       self.declension=0
       self.extras="indeclinable proper noun"

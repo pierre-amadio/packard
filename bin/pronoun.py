@@ -15,7 +15,7 @@ class Pronoun(Packard):
   extras=None
 
   def parseRawCode(self):
-    self.WordType="Pronoun"
+    self.wordType="Pronoun"
     if len(self.typeCode)!=2:
       raise IndexError("Invalid pronoun code:%s"%self.typeCode)
     t=self.typeCode[1]

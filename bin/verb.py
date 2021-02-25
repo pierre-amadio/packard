@@ -133,7 +133,7 @@ class Verb(Packard):
 
 
   def parseRawCode(self):
-    self.WordType="Verb"
+    self.wordType="Verb"
 
     if len(self.typeCode)>2 and len(self.typeCode[2])=="I":
       self.augment=True

@@ -43,7 +43,7 @@ class Adjective(Packard):
     """
 
   def parseRawCode(self):
-    self.WordType="Adjective"
+    self.wordType="Adjective"
     if len(self.typeCode)==1:
       self.declension=0
       self.extras=""

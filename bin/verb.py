@@ -46,7 +46,7 @@ class Verb(Packard):
 
   def progressive(self):
     self.stem="progressive"
-    t=self.typeCode[1]
+    t=int(self.typeCode[1])
     if t==1:
       self.extras="regular present"
     elif t==2:

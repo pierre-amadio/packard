@@ -36,6 +36,8 @@ class Noun(Packard):
         self.extras="stem in -η, nom. in -α (f.)"
       elif slef.typecode[2]=='T':
         self.extras="masc. with nom. in -ας"
+      else:
+        raise IndexError("Invalid noun code: %s"%self.typeCode)
 
   def secondDeclension(self):
     self.declension=2
@@ -45,7 +47,10 @@ class Noun(Packard):
       """
         Only N2N
       """
-      self.extras="neuters (in -ον)"
+      if self.typeCode=="N2N":
+        self.extras="neuters (in -ον)"
+      else:
+        raise IndexError("Invalid noun code: %s"%self.typeCode)
 
   def thirdDeclension(self):
     self.declension=3

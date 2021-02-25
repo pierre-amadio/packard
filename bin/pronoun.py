@@ -13,6 +13,9 @@ from packard import *
 
 class Pronoun(Packard):
   extras=None
+  case=None
+  number=None
+  gender=None
 
   def parseRawCode(self):
     self.wordType="Pronoun"
@@ -33,3 +36,15 @@ class Pronoun(Packard):
       self.extras="ὅστις"
     else:
       raise IndexError("invalid pronoun code:%s"%self.typeCode)
+    t=super().parseTriCode(self.parseCode)
+    self.case=t["case"]
+    self.number=t["number"]
+    self.gender=t["gender"]
+
+  def desc(self):
+    out="Pronoun\n"
+    out+=self.extras+"\n"
+    out+="%s / %s / %s"%(self.case,self.gender,self.number)
+    return out
+
+

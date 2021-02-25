@@ -67,6 +67,7 @@ class Noun(Packard):
     if len(self.typeCode)==1:
       self.declension=0
       self.extras="indeclinable proper noun"
+      pass
     else:
       self.declension=int(self.typeCode[1])
       if self.declension==1:

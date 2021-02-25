@@ -25,7 +25,7 @@ def instanciate(code):
     return Misc(code)
   raise IndexError("Invalid code:%s"%code)
 
-code="N2N-NSM"
+code="RA-NDM"
 print(code)
 a=instanciate(code)
 print(a.desc())

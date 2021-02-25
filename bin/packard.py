@@ -44,6 +44,8 @@ class Packard:
       out["case"]="Accusative"
     elif tricode[0]=="V":
       out["case"]="Vocative"
+    else:
+      raise IndexError("Invalid case in code %s"%tricode)
 
     if tricode[1]=="S":
       out["number"]="Singular"
@@ -51,6 +53,8 @@ class Packard:
       out["number"]="Dual"
     elif tricode[1]=="P":
       out["number"]="Plural"
+    else:
+      raise IndexError("Invalid number in code %s"%tricode)
 
     if tricode[2]=="M":
       out["gender"]="Masculine"
@@ -58,5 +62,7 @@ class Packard:
       out["gender"]="Feminine"
     elif tricode[2]=="N":
       out["gender"]="Neutral"
+    else:
+      raise IndexError("Invalid gender in code %s"%tricode)
 
     return(out)

@@ -65,11 +65,48 @@ class Verb(Packard):
       self.extras="-ο stem -μι verb"
     elif t==9:
       self.extras="εἰμί and εἶμι"
+    else:
+      raise IndexError("invalid progressive verb type code:"%self.typeCode)
 
-  def aoris(self):
-    print("aorist")
 
-  def perfect(self):
+  def aorist(self):
+    self.stem="aorist"
+    t=self.typeCode[1]
+    if t=="A":
+      self.extras="1st aorist active"
+     elif t=="B":
+      self.extras="2nd aorist active (#1)"
+    elif t=="Z":
+      self.extras="2nd aorist active (#2 irregular)"
+    elif t=="H":
+      self.extras="-η stem -μι verb"
+    elif t=="E":
+      self.extras="-ε stem -μι verb"
+    elif t=="O":
+      self.extras="-ο stem -μι verb"
+    elif t=="C":
+      self.extras="#1 aorist & future passive (Q-type)"
+    elif t=="D":
+      self.extras="#2 aorist & future passive (non-Q type)"
+    elif t=="V":
+      self.extras="labial aorist & future passive"
+    elif t=="S":
+      self.extras="dental aorist & future passive + ζ"
+    elif t=="Q":
+      self.extras="guttural aorist & future passive"
+    else:
+      raise IndexError("invalid aorist verb type code:"%self.typeCode)
+
+
+
+
+
+
+
+
+
+
+ def perfect(self):
     print("perfect")
 
   def future(self):
@@ -78,9 +115,12 @@ class Verb(Packard):
   def parseRawCode(self):
     self.WordType="Verb"
 
+    if len(self.typeCode>2) and len(self.typeCode[2]=="I"):
+      self.augment=True
+
     if re.search("\d",self.typeCode[1]):
       self.progressive()
-    elif self.typeCode[1] in "ABZHCDVSQ":
+    elif self.typeCode[1] in "ABZHEOCDVSQ":
       self.aorist()
     elif self.typeCode[1] in "XMPTK":
       self.perfect()

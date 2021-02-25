@@ -20,7 +20,7 @@ Aorist Stems
      VZ = 2nd   "     "   #2(irreg)
      VH, VE, VO = -H, -E, -O stem -MI verbs
      VC = #1 aor.& fut.pass.(Q-type)
-     VD = #2  "  "  "   "   (non-Q) 
+     VD = #2  "  "  "   "   (non-Q)
      VV = labial " " "  "
      VS = dental " " "  " (+ zeta)
      VQ = guttural" " " "

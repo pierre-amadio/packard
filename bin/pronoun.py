@@ -26,7 +26,7 @@ class Pronoun(Packard):
     elif t=="I":
       self.extras="interrogative/indefinite"
     elif t=="P":
-      self.extras="perosnal/possessive"
+      self.extras="personal/possessive"
     elif t=="R":
       self.extras="relative"
     elif t=="X":

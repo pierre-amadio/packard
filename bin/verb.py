@@ -134,7 +134,6 @@ class Verb(Packard):
 
   def parseRawCode(self):
     self.wordType="Verb"
-
     if len(self.typeCode)>2 and len(self.typeCode[2])=="I":
       self.augment=True
 
@@ -149,4 +148,4 @@ class Verb(Packard):
     else:
       raise IndexError("invalid verb type code:%s"%self.typeCode)
 
-    print(self.typeCode,self.parseCode)
+    print("verb=",self.typeCode,self.parseCode)

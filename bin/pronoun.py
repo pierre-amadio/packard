@@ -19,7 +19,7 @@ class Pronoun(Packard):
     if len(self.typeCode)!=2:
       raise IndexError("Invalid pronoun code:%s"%self.typeCode)
     t=self.typeCode[1]
-    elif t=="A":
+    if t=="A":
       self.extras="article"
     elif t=="D":
       self.extras="demonstrative"

@@ -66,15 +66,14 @@ class Verb(Packard):
     elif t==9:
       self.extras="εἰμί and εἶμι"
     else:
-      raise IndexError("invalid progressive verb type code:"%self.typeCode)
-
+      raise IndexError("invalid progressive verb type code:%s"%self.typeCode)
 
   def aorist(self):
     self.stem="aorist"
     t=self.typeCode[1]
     if t=="A":
       self.extras="1st aorist active"
-     elif t=="B":
+    elif t=="B":
       self.extras="2nd aorist active (#1)"
     elif t=="Z":
       self.extras="2nd aorist active (#2 irregular)"
@@ -95,10 +94,10 @@ class Verb(Packard):
     elif t=="Q":
       self.extras="guttural aorist & future passive"
     else:
-      raise IndexError("invalid aorist verb type code:"%self.typeCode)
+      raise IndexError("invalid aorist verb type code:%s"%self.typeCode)
 
 
- def perfect(self):
+  def perfect(self):
     self.stem="perfect"
     t=self.typeCode[1]
     if self.augment:
@@ -116,16 +115,27 @@ class Verb(Packard):
     elif t=="K":
       self.extras="guttural %s middle"%tname
     else:
-      raise IndexError("invalid perfect verb type code:"%self.typeCode)
+      raise IndexError("invalid perfect verb type code:%s"%self.typeCode)
 
 
   def future(self):
-    print("future")
+    self.stem="future"
+    if self.typeCode=="VF":
+      self.extras="regular future"
+    elif self.typeCode=="VF2":
+      self.extras="liquid type (+ζ)"
+    elif self.typeCode=="VF3":
+      self.extras="ἐλαύνω type"
+    elif self.typeCode=="VFX":
+      self.extras="future perfect"
+    else:
+      raise IndexError("invalid future verb stem code:%s"%self.typeCode)
+
 
   def parseRawCode(self):
     self.WordType="Verb"
 
-    if len(self.typeCode>2) and len(self.typeCode[2]=="I"):
+    if len(self.typeCode)>2 and len(self.typeCode[2])=="I":
       self.augment=True
 
     if re.search("\d",self.typeCode[1]):
@@ -137,6 +147,6 @@ class Verb(Packard):
     elif self.typeCode[1]=="F":
       self.future()
     else:
-      raise IndexError("invalid verb type code:"%self.typeCode)
+      raise IndexError("invalid verb type code:%s"%self.typeCode)
 
     print(self.typeCode,self.parseCode)

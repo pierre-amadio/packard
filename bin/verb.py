@@ -36,56 +36,57 @@ Future Stems
      VF3 = E)LAU/NW type
      VFX = future perfect
 """
-
 from packard import *
 import re
 
 class Verb(Packard):
-  declension=None
+  stem=None
   extras=None
   augment=False
 
+  def progressive(self):
+    self.stem="progressive"
+    t=self.typeCode[1]
+    if t==1:
+      self.extras="regular present"
+    elif t==2:
+      self.extras="contracts in -εω"
+    elif t==3:
+      self.extras="contracts in -αω"
+    elif t==4:
+      self.extras="contracts in -οω"
+    elif t==5:
+      self.extras="regular -μι verb"
+    elif t==6:
+      self.extras="-α stem -μι verb"
+    elif t==7:
+      self.extras="-ε stem -μι verb"
+    elif t==8:
+      self.extras="-ο stem -μι verb"
+    elif t==9:
+      self.extras="εἰμί and εἶμι"
 
-  def firstDeclension(self):
-    self.declension=1
-    if len(self.typeCode)==2:
-      self.extras="-ος -η -ον pattern endings"
-    else:
-      if self.typeCode[2]=='A':
-        self.extras="-ος -α -ον"
-      elif self.typeCode[2]=='B':
-        self.extras="-ος -ος -ον"
-      elif self.typeCode[2]=='C':
-        self.extras="-ους -ους -ουν"
-      elif slef.typecode[2]=='S':
-        self.extras="nom. in -α, stem in -η"
-      else :
-        raise IndexError("invalid adjective code:%s"%self.typeCode)
+  def aoris(self):
+    print("aorist")
 
-  def thirdDeclension(self):
-    self.declension=3
-    self.extras=""
-    """
-      TODO: A3E,H,N,U,C
-      indicate the kind of third declension
-    """
+  def perfect(self):
+    print("perfect")
+
+  def future(self):
+    print("future")
 
   def parseRawCode(self):
     self.WordType="Verb"
 
     if re.search("\d",self.typeCode[1]):
-      print("YEP")
-
-    if len(self.typeCode)==1:
-      self.declension=0
-      self.extras=""
-      raise IndexError("incomplete adjective code:%s"%self.typeCode)
+      self.progressive()
+    elif self.typeCode[1] in "ABZHCDVSQ":
+      self.aorist()
+    elif self.typeCode[1] in "XMPTK":
+      self.perfect()
+    elif self.typeCode[1]=="F":
+      self.future()
     else:
-      self.declension=int(self.typeCode[1])
-      if self.declension==1:
-        self.firstDeclension()
-      if self.declension==3:
-        self.thirdDeclension()
+      raise IndexError("invalid verb type code:"%self.typeCode)
 
-    print(self.parseCode)
-    print(super().parseTriCode(self.parseCode))
+    print(self.typeCode,self.parseCode)

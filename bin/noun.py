@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """
-https://www.translatum.gr/converter/beta-code.htm
-
  N = Noun (up to 3 columns)
    N1 = 1st declension (fem. in -H)
      N1A = stem ending in -A (fem.)
@@ -22,6 +20,9 @@ from packard import *
 class Noun(Packard):
   declension=None
   extras=None
+  case=None
+  number=None
+  gender=None
 
   def firstDeclension(self):
     self.declension=1
@@ -60,6 +61,7 @@ class Noun(Packard):
       indicate the kind of third declension
     """
 
+
   def parseRawCode(self):
     self.wordType="Noun"
     if len(self.typeCode)==1:
@@ -69,9 +71,22 @@ class Noun(Packard):
       self.declension=int(self.typeCode[1])
       if self.declension==1:
         self.firstDeclension()
-      if self.declension==2:
+      elif self.declension==2:
         self.secondDeclension()
-      if self.declension==3:
+      elif self.declension==3:
         self.thirdDeclension()
+      else:
+        raise IndexError("Wrong declension type for code:%s"%self.typeCode)
+    t=super().parseTriCode(self.parseCode)
+    self.case=t["case"]
+    self.number=t["number"]
+    self.gender=t["gender"]
 
-    print(super().parseTriCode(self.parseCode))
+  def desc(self):
+    out="Noun\n"
+    if self.declension:
+      out+="%s declension\n"%self.declension
+    out+=self.extras+"\n"
+    out+="%s / %s / %s"%(self.case,self.gender,self.number)
+    return out
+

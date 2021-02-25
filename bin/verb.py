@@ -98,16 +98,26 @@ class Verb(Packard):
       raise IndexError("invalid aorist verb type code:"%self.typeCode)
 
 
-
-
-
-
-
-
-
-
  def perfect(self):
-    print("perfect")
+    self.stem="perfect"
+    t=self.typeCode[1]
+    if self.augment:
+      tname="pluperfect"
+    else:
+      tname="perfect"
+    if t=="X":
+      self.extras="%s active"%tname
+    elif t=="M":
+      self.extras="%s middle"%tname
+    elif t=="P":
+      self.extras="labial %s middle"%tname
+    elif t=="T":
+      self.extras="dental %s middle (+ζ)"%tname
+    elif t=="K":
+      self.extras="guttural %s middle"%tname
+    else:
+      raise IndexError("invalid perfect verb type code:"%self.typeCode)
+
 
   def future(self):
     print("future")

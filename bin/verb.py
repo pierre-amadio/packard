@@ -38,10 +38,13 @@ Future Stems
 """
 
 from packard import *
+import re
 
 class Verb(Packard):
   declension=None
   extras=None
+  augment=False
+
 
   def firstDeclension(self):
     self.declension=1
@@ -63,12 +66,16 @@ class Verb(Packard):
     self.declension=3
     self.extras=""
     """
-      TODO: A3E,H,N,U,C  
+      TODO: A3E,H,N,U,C
       indicate the kind of third declension
     """
 
   def parseRawCode(self):
-    self.WordType="Adjective"
+    self.WordType="Verb"
+
+    if re.search("\d",self.typeCode[1]):
+      print("YEP")
+
     if len(self.typeCode)==1:
       self.declension=0
       self.extras=""

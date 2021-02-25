@@ -74,5 +74,4 @@ class Noun(Packard):
       if self.declension==3:
         self.thirdDeclension()
 
-    print(self.parseCode)
     print(super().parseTriCode(self.parseCode))

@@ -28,18 +28,27 @@ def instanciate(code):
 #a=instanciate(code)
 #print(a.desc())
 
-#code="VAI-AAI3S"
-#a=instanciate(code)
-#print(a.desc())
-#sys.exit()
+code="A1-APF"
+a=instanciate(code)
+print(a.desc())
+sys.exit()
 
-osisLXX="/home/melmoth/dev/LXX/20210223-lxx.osis.xml"
-with open(osisLXX) as fp:
-  soup = BeautifulSoup(fp, 'xml')
-  for w in soup.find_all("w"):
-    print(w)
-    print(w["morph"])
-    code=w["morph"].replace("packard:","")
-    a=instanciate(code)
+#osisLXX="/home/melmoth/dev/LXX/20210223-lxx.osis.xml"
+#with open(osisLXX) as fp:
+#  soup = BeautifulSoup(fp, 'xml')
+#  for w in soup.find_all("w"):
+#    print(w)
+#    print(w["morph"])
+#    code=w["morph"].replace("packard:","")
+#    a=instanciate(code)
+#    print(a.desc())
+
+
+sys.exit()
+with open("code.txt") as file_in:
+  for line in file_in:
+    line=line.strip()
+    print(line) 
+    a=instanciate(line)
     print(a.desc())
 

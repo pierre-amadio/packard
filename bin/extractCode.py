@@ -4,7 +4,7 @@ import sys
 
 dic=set()
 
-osisLXX="/home/melmoth/dev/LXX/20210223-lxx.osis.xml"
+osisLXX="/home/melmoth/dev/LXX/lxx.osis.xml"
 with open(osisLXX) as fp:
   soup = BeautifulSoup(fp, 'xml')
   for w in soup.find_all("w"):

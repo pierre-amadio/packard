@@ -32,7 +32,7 @@ class Adjective(Packard):
         self.extras="-ος -ος -ον"
       elif self.typeCode[2]=='C':
         self.extras="-ους -ους -ουν"
-      elif slef.typecode[2]=='S':
+      elif self.typeCode[2]=='S':
         self.extras="nom. in -α, stem in -η"
       else :
         raise IndexError("invalid adjective code:%s"%self.typeCode)
@@ -65,10 +65,10 @@ class Adjective(Packard):
       else:
         raise IndexError("invalid irregular adjective code:%s"%self.parseCode)
 
-      code=super().parseTriCode(self.parseCode[0:3])
-      self.case=code["case"]
-      self.number=code["number"]
-      self.gender=code["gender"]
+    code=super().parseTriCode(self.parseCode[0:3])
+    self.case=code["case"]
+    self.number=code["number"]
+    self.gender=code["gender"]
 
   def desc(self):
     out="Adjective\n"

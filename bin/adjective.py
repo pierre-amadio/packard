@@ -52,8 +52,10 @@ class Adjective(Packard):
       self.declension=int(self.typeCode[1])
       if self.declension==1:
         self.firstDeclension()
-      if self.declension==3:
+      elif self.declension==3:
         self.thirdDeclension()
+      else:
+        raise IndexError("invalid declension for adjective: %s"%self.typeCode)
 
     if len(self.parseCode)==4:
       if self.parseCode[3]=="C":
@@ -62,6 +64,7 @@ class Adjective(Packard):
         self.irregularDegree="superlative"
       else:
         raise IndexError("invalid irregular adjective code:%s"%self.parseCode)
+
       code=super().parseTriCode(self.parseCode[0:3])
       self.case=code["case"]
       self.number=code["number"]
@@ -69,6 +72,14 @@ class Adjective(Packard):
 
   def desc(self):
     out="Adjective\n"
-    print(self.declension)
-    print(self.extras)
+    if self.declension==1:
+      out+="1st/2nd declension: "
+    else:
+      out+="3rd declension: "
+    out+=self.extras+"\n"
+    if self.irregularDegree:
+      out+="irregular %s \n"%self.irregularDegree
+    out+="%s / %s / %s"%(self.case,self.gender,self.number)
+
+
     return(out)

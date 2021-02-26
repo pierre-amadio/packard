@@ -10,6 +10,11 @@ A = Adjective (up to 3 cols.)
      A1S = nom. in -A, stem in -H
   A3 = 3rd declension patterns
      A3E,H,N,U,C as for 3 decl. nouns
+
+TODO what about this entry in Isa 43:26 (and some other place)
+PRW=TOS                  A1  B      PRW=TOS
+it end up as this non valdid code: A1-B 
+i guess it should be A1B-NSM but unsure
 """
 
 from packard import *

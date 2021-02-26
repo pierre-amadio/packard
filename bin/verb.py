@@ -201,6 +201,19 @@ class Verb(Packard):
       self.case=t["case"]
       self.number=t["number"]
       self.gender=t["gender"]
+    else:
+      if re.search("\d",self.parseCode[3]):
+        raise IndexError("invalid person for code %s"%parseCode)
+      self.person=self.parseCode[3]
+      n=self.parseCode[4]
+      if n=="S":
+        self.number="single"
+      elif n=="D":
+        self.number="dual"
+      elif n=="P":
+        self.number="plural"
+      else:
+        raise IndexError("invalid number code for %s"%self.parseCode)
 
 
     #print("verb=",self.typeCode,self.parseCode)

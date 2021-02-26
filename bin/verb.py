@@ -47,7 +47,7 @@ class Verb(Packard):
   voice=None
   mood=None
   person=None
-  participe=False
+  participle=False
   case=None
   number=None
   gender=None
@@ -180,8 +180,23 @@ class Verb(Packard):
     else:
       raise IndexError("Invalid voice for code %s"%self.typeCode)
 
+    if self.typeCode[2]=="I":
+      self.mood="indicative"
+    elif self.typeCode[2]=="D":
+      self.mood="imperative"
+    elif self.typeCode[2]=="S":
+      self.mood="subjonctive"
+    elif self.typeCode[2]=="O":
+      self.mood="optative"
+    elif self.typeCode[2]=="N":
+      self.mood="infinitive"
+    elif self.typeCode[2]=="P":
+      self.mood="participle"
+    else:
+      raise IndexError("invalid mood code: %s"%self.typeCode)
+
     if len(self.typeCode)==6:
-      self.participe=True
+      self.participle=True
       t=super().parseTriCode(self.parseCode[3:5])
       self.case=t["case"]
       self.number=t["number"]

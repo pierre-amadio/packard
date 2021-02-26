@@ -201,7 +201,7 @@ class Verb(Packard):
 
     if len(self.parseCode)==6:
       self.participle=True
-      t=super().parseTriCode(self.parseCode[3:5])
+      t=super().parseTriCode(self.parseCode[3:])
       self.case=t["case"]
       self.number=t["number"]
       self.gender=t["gender"]

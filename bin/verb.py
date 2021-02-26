@@ -199,7 +199,7 @@ class Verb(Packard):
     else:
       raise IndexError("invalid mood code: %s"%self.typeCode)
 
-    if len(self.typeCode)==6:
+    if len(self.parseCode)==6:
       self.participle=True
       t=super().parseTriCode(self.parseCode[3:5])
       self.case=t["case"]

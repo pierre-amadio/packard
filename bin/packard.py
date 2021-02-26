@@ -18,11 +18,16 @@ class Packard:
   def __init__(self, rawcode):
     self.rawCode = rawcode
     test=re.search("^(.*)-(.*)$",self.rawCode)
-    if not test:
+
+
+    if not test and len(rawcode)>1:
       raise IndexError("invalid rawcode:%s"%self.rawCode)
     else:
-      self.typeCode=test.group(1)
-      self.parseCode=test.group(2)
+      if len(rawcode)>1:
+        self.typeCode=test.group(1)
+        self.parseCode=test.group(2)
+      else:
+        self.typeCode=rawcode
 
     self.parseRawCode()
 

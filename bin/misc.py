@@ -14,9 +14,9 @@ class Misc(Packard):
   extras=None
 
   def parseRawCode(self):
-    if len(self.typeCode)!=2:
+    if len(self.typeCode)!=1:
       raise IndexError("Invalid misc code:%s"%self.typeCode)
-    t=self.typeCode[1]
+    t=self.typeCode[0]
     if t=="C":
       self.wordType="conjunction"
     elif t=="X":

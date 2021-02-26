@@ -156,41 +156,41 @@ class Verb(Packard):
     else:
       raise IndexError("invalid verb type code:%s"%self.typeCode)
 
-    if self.typeCode[0]=="P":
+    if self.parseCode[0]=="P":
       self.tense="present"
-    elif self.typeCode[0]=="I":
+    elif self.parseCode[0]=="I":
       self.tense="imperfect"
-    elif self.typeCode[0]=="F":
+    elif self.parseCode[0]=="F":
       self.tense="future"
-    elif self.typeCode[0]=="A":
+    elif self.parseCode[0]=="A":
       self.tense="aorist"
-    elif self.typeCode[0]=="X":
+    elif self.parseCode[0]=="X":
       self.tense="perfect"
-    elif self.typeCode[0]=="P":
+    elif self.parseCode[0]=="Y":
       self.tense="pluperfect"
     else:
       raise IndexError("Invalid tense for code %s"%self.typeCode)
 
-    if self.typeCode[1]=="A":
+    if self.parseCode[1]=="A":
       self.voice="active"
-    elif self.typeCode[1]=="M":
+    elif self.parseCode[1]=="M":
       self.voice="middle"
-    elif self.typeCode[1]=="P":
+    elif self.parseCode[1]=="P":
       self.voice="passive"
     else:
       raise IndexError("Invalid voice for code %s"%self.typeCode)
 
     if self.typeCode[2]=="I":
       self.mood="indicative"
-    elif self.typeCode[2]=="D":
+    elif self.parseCode[2]=="D":
       self.mood="imperative"
-    elif self.typeCode[2]=="S":
+    elif self.parseCode[2]=="S":
       self.mood="subjonctive"
-    elif self.typeCode[2]=="O":
+    elif self.parseCode[2]=="O":
       self.mood="optative"
-    elif self.typeCode[2]=="N":
+    elif self.parseCode[2]=="N":
       self.mood="infinitive"
-    elif self.typeCode[2]=="P":
+    elif self.parseCode[2]=="P":
       self.mood="participle"
     else:
       raise IndexError("invalid mood code: %s"%self.typeCode)
@@ -202,8 +202,8 @@ class Verb(Packard):
       self.number=t["number"]
       self.gender=t["gender"]
     else:
-      if re.search("\d",self.parseCode[3]):
-        raise IndexError("invalid person for code %s"%parseCode)
+      if not re.search("\d",self.parseCode[3]):
+        raise IndexError("invalid person for code %s"%self.parseCode)
       self.person=self.parseCode[3]
       n=self.parseCode[4]
       if n=="S":
@@ -220,5 +220,6 @@ class Verb(Packard):
 
   def desc(self):
     out="Verb"
+    return(out)
 
 

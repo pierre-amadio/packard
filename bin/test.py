@@ -5,11 +5,8 @@ from adjective import *
 from verb import *
 from misc import *
 from pronoun import * 
-
-#a=Packard("plop")
-#print(a.rawCode)
-
-#b=Adjective("A-AZ")
+from bs4 import BeautifulSoup
+import sys
 
 def instanciate(code):
   t=code[0]
@@ -26,7 +23,23 @@ def instanciate(code):
   raise IndexError("Invalid code:%s"%code)
 
 #code="V1I-IMI3P"
-code="A1C-NSMC"
-print(code)
-a=instanciate(code)
-print(a.desc())
+#code="A1C-NSMC"
+#print(code)
+#a=instanciate(code)
+#print(a.desc())
+
+#code="VAI-AAI3S"
+#a=instanciate(code)
+#print(a.desc())
+#sys.exit()
+
+osisLXX="/home/melmoth/dev/LXX/20210223-lxx.osis.xml"
+with open(osisLXX) as fp:
+  soup = BeautifulSoup(fp, 'xml')
+  for w in soup.find_all("w"):
+    print(w)
+    print(w["morph"])
+    code=w["morph"].replace("packard:","")
+    a=instanciate(code)
+    print(a.desc())
+

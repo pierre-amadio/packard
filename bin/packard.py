@@ -3,7 +3,7 @@
 """
 TTT-PPPPPP
  |     |______ "PARSE" CODE (up to 6 columns, as needed, to parse each form) 
- |_____________"TYPE" CODES (3 columns maximum, to identify part of speech)
+ |_____________"TYPE" CODE (3 columns maximum, to identify part of speech)
 
 """
 import re

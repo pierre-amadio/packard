@@ -17,9 +17,12 @@ from packard import *
 class Adjective(Packard):
   declension=None
   extras=None
+  case=None
+  number=None
+  gender=None
+  irregularDegree=None
 
   def firstDeclension(self):
-    self.declension=1
     if len(self.typeCode)==2:
       self.extras="-ος -η -ον pattern endings"
     else:
@@ -35,7 +38,6 @@ class Adjective(Packard):
         raise IndexError("invalid adjective code:%s"%self.typeCode)
 
   def thirdDeclension(self):
-    self.declension=3
     self.extras=""
     """
       TODO: A3E,H,N,U,C  
@@ -45,8 +47,6 @@ class Adjective(Packard):
   def parseRawCode(self):
     self.wordType="Adjective"
     if len(self.typeCode)==1:
-      self.declension=0
-      self.extras=""
       raise IndexError("incomplete adjective code:%s"%self.typeCode)
     else:
       self.declension=int(self.typeCode[1])
@@ -55,5 +55,20 @@ class Adjective(Packard):
       if self.declension==3:
         self.thirdDeclension()
 
-    print(self.parseCode)
-    print(super().parseTriCode(self.parseCode))
+    if len(self.parseCode)==4:
+      if self.parseCode[3]=="C":
+        self.irregularDegree="comparative"
+      elif self.parseCode[3]=="S":
+        self.irregularDegree="superlative"
+      else:
+        raise IndexError("invalid irregular adjective code:%s"%self.parseCode)
+      code=super().parseTriCode(self.parseCode[0:3])
+      self.case=code["case"]
+      self.number=code["number"]
+      self.gender=code["gender"]
+
+  def desc(self):
+    out="Adjective\n"
+    print(self.declension)
+    print(self.extras)
+    return(out)

@@ -147,7 +147,7 @@ class Verb(Packard):
 
     if len(self.typeCode)>2 and len(self.typeCode[2])=="I":
       self.augment=True
-   
+
     if len(self.typeCode)>1:
       if re.search("\d",self.typeCode[1]):
         self.progressive()
@@ -224,6 +224,15 @@ class Verb(Packard):
 
   def desc(self):
     out="Verb"
+    out+="stem:%s\n"%self.stem
+    out+="extras:%s\n"%self.extras
+    out+="augment:%s\n"%self.augment
+    out+="tense:%s\n"%self.tense
+    out+="voice:%s\n"%self.voice
+    out+="mood:%s\n"%self.mood
+    out+="person:%s\n"%self.person
+    out+="participle:%s\n"%self.participle
+    out+="case:%s number:%s gender:%s"%(self.case,self.number,self.gender)
     return(out)
 
 

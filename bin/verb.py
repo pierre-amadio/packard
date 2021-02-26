@@ -145,7 +145,7 @@ class Verb(Packard):
   def parseRawCode(self):
     self.wordType="Verb"
 
-    if len(self.typeCode)>2 and len(self.typeCode[2])=="I":
+    if len(self.typeCode)>2 and self.typeCode[2]=="I":
       self.augment=True
 
     if len(self.typeCode)>1:
@@ -206,18 +206,22 @@ class Verb(Packard):
       self.number=t["number"]
       self.gender=t["gender"]
     else:
-      if not re.search("\d",self.parseCode[3]):
-        raise IndexError("invalid person for code %s"%self.parseCode)
-      self.person=self.parseCode[3]
-      n=self.parseCode[4]
-      if n=="S":
-        self.number="single"
-      elif n=="D":
-        self.number="dual"
-      elif n=="P":
-        self.number="plural"
-      else:
-        raise IndexError("invalid number code for %s"%self.parseCode)
+      if len(self.parseCode)!=3:
+        """
+         this is not an infinitive such as V-XAN
+        """
+        if not re.search("\d",self.parseCode[3]):
+          raise IndexError("invalid person for code %s"%self.parseCode)
+        self.person=self.parseCode[3]
+        n=self.parseCode[4]
+        if n=="S":
+          self.number="single"
+        elif n=="D":
+          self.number="dual"
+        elif n=="P":
+          self.number="plural"
+        else:
+          raise IndexError("invalid number code for %s"%self.parseCode)
 
 
     #print("verb=",self.typeCode,self.parseCode)

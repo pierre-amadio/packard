@@ -144,19 +144,21 @@ class Verb(Packard):
 
   def parseRawCode(self):
     self.wordType="Verb"
+
     if len(self.typeCode)>2 and len(self.typeCode[2])=="I":
       self.augment=True
-
-    if re.search("\d",self.typeCode[1]):
-      self.progressive()
-    elif self.typeCode[1] in "ABZHEOCDVSQ":
-      self.aorist()
-    elif self.typeCode[1] in "XMPTK":
-      self.perfect()
-    elif self.typeCode[1]=="F":
-      self.future()
-    else:
-      raise IndexError("invalid verb type code:%s"%self.typeCode)
+   
+    if len(self.typeCode)>1:
+      if re.search("\d",self.typeCode[1]):
+        self.progressive()
+      elif self.typeCode[1] in "ABZHEOCDVSQ":
+        self.aorist()
+      elif self.typeCode[1] in "XMPTK":
+        self.perfect()
+      elif self.typeCode[1]=="F":
+        self.future()
+      else:
+        raise IndexError("invalid verb type code:%s"%self.typeCode)
 
     if self.parseCode[0]=="P":
       self.tense="present"
@@ -182,7 +184,7 @@ class Verb(Packard):
     else:
       raise IndexError("Invalid voice for code %s"%self.typeCode)
 
-    if self.typeCode[2]=="I":
+    if self.parseCode[2]=="I":
       self.mood="indicative"
     elif self.parseCode[2]=="D":
       self.mood="imperative"

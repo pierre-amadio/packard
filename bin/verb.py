@@ -169,8 +169,16 @@ class Verb(Packard):
     elif self.typeCode[0]=="P":
       self.tense="pluperfect"
     else:
-      raise IndexErrot("Invalid tense for code %s"%self.typeCode)
+      raise IndexError("Invalid tense for code %s"%self.typeCode)
 
+    if self.typeCode[1]=="A":
+      self.voice="active"
+    elif self.typeCode[1]=="M":
+      self.voice="middle"
+    elif self.typeCode[1]=="P":
+      self.voice="passive"
+    else:
+      raise IndexError("Invalid voice for code %s"%self.typeCode)
 
     if len(self.typeCode)==6:
       self.participe=True

@@ -31,3 +31,7 @@ class Misc(Packard):
       self.wordType="adverb"
     else:
       raise IndexError("invalid misc code:%s"%self.typeCode)
+
+  def desc(self):
+    out=self.wordType
+    return out

@@ -47,8 +47,12 @@ def instanciate(code):
 with open("code.txt") as file_in:
   for line in file_in:
     line=line.strip()
-    print(line) 
-    a=instanciate(line)
-    print(a.desc())
-    print(" ")
+    #print(line) 
+    try:
+      a=instanciate(line)
+      #print(a.desc())
+      #print(" ")
+    except (IndexError,ValueError,TypeError):
+      print(line)
+
 

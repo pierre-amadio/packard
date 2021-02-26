@@ -13,8 +13,17 @@ A = Adjective (up to 3 cols.)
 
 TODO what about this entry in Isa 43:26 (and some other place)
 PRW=TOS                  A1  B      PRW=TOS
-it end up as this non valdid code: A1-B 
+TAXU\                    A3U B      TAXU/S
+
+it end up as this non valdid code: A1-B
 i guess it should be A1B-NSM but unsure
+
+TODO what about A1P code ? (μέγαν πολύς)
+this is not documented in the "how to parse" doc
+
+TODO what about the following in isa 56.5
+ AA-ASM is not a valid code
+
 """
 
 from packard import *

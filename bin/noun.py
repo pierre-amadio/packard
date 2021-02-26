@@ -35,7 +35,7 @@ class Noun(Packard):
         self.extras="masc. with nom. in -ης"
       elif self.typeCode[2]=='S':
         self.extras="stem in -η, nom. in -α (f.)"
-      elif slef.typecode[2]=='T':
+      elif self.typeCode[2]=='T':
         self.extras="masc. with nom. in -ας"
       else:
         raise IndexError("Invalid noun code: %s"%self.typeCode)

@@ -35,6 +35,8 @@ Future Stems
      VF2 = liquid type(+ zeta)
      VF3 = E)LAU/NW type
      VFX = future perfect
+
+TODO: verb code can be of the form V- (V-IMI1P  imperfect middle  indicative 1(person?) plural)
 """
 from packard import *
 import re

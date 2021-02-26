@@ -43,6 +43,14 @@ class Verb(Packard):
   stem=None
   extras=None
   augment=False
+  tense=None
+  voice=None
+  mood=None
+  person=None
+  participe=False
+  case=None
+  number=None
+  gender=None
 
   def progressive(self):
     self.stem="progressive"
@@ -148,4 +156,33 @@ class Verb(Packard):
     else:
       raise IndexError("invalid verb type code:%s"%self.typeCode)
 
-    print("verb=",self.typeCode,self.parseCode)
+    if self.typeCode[0]=="P":
+      self.tense="present"
+    elif self.typeCode[0]=="I":
+      self.tense="imperfect"
+    elif self.typeCode[0]=="F":
+      self.tense="future"
+    elif self.typeCode[0]=="A":
+      self.tense="aorist"
+    elif self.typeCode[0]=="X":
+      self.tense="perfect"
+    elif self.typeCode[0]=="P":
+      self.tense="pluperfect"
+    else:
+      raise IndexErrot("Invalid tense for code %s"%self.typeCode)
+
+
+    if len(self.typeCode)==6:
+      self.participe=True
+      t=super().parseTriCode(self.parseCode[3:5])
+      self.case=t["case"]
+      self.number=t["number"]
+      self.gender=t["gender"]
+
+
+    #print("verb=",self.typeCode,self.parseCode)
+
+  def desc(self):
+    out="Verb"
+
+

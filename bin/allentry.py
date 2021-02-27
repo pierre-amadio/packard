@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+from packard import *
+from noun import *
+from adjective import *
+from verb import *
+from misc import *
+from pronoun import * 
+from bs4 import BeautifulSoup
+import sys
+
+inputFile=sys.argv[1]
+
+def instanciate(code):
+  t=code[0]
+  if t=="N":
+    return Noun(code)
+  if t=="A":
+    return Adjective(code)
+  if t=="R":
+    return Pronoun(code)
+  if t=="V":
+    return Verb(code)
+  if t in "CXIMPD":
+    return Misc(code)
+  raise IndexError("Invalid code:%s"%code)
+
+
+with open(inputFile) as file_in:
+  for line in file_in:
+    line=line.strip()
+    print(line) 
+    try:
+      a=instanciate(line)
+      print(a.desc())
+      print(" ")
+    except (IndexError,ValueError,TypeError):
+      print("error")
+
+

@@ -64,7 +64,8 @@ class Adjective(Packard):
   def parseRawCode(self):
     self.wordType="Adjective"
     if len(self.typeCode)==1:
-      raise IndexError("incomplete adjective code:%s"%self.typeCode)
+      self.extras="unknown"
+      #raise IndexError("incomplete adjective code:%s"%self.typeCode)
     else:
       self.declension=int(self.typeCode[1])
       if self.declension==1:
@@ -92,7 +93,8 @@ class Adjective(Packard):
     if self.declension==1:
       out+="1st/2nd declension: "
     else:
-      out+="3rd declension: "
+      if self.declension!=None:
+        out+="3rd declension: "
     out+=self.extras+"\n"
     if self.irregularDegree:
       out+="irregular %s \n"%self.irregularDegree

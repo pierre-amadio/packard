@@ -94,15 +94,15 @@ class Verb(Packard):
     elif t=="O":
       self.extras="-ο stem -μι verb"
     elif t=="C":
-      self.extras="#1 aorist & future passive (Q-type)"
+      self.extras="#1 aorist &amp; future passive (Q-type)"
     elif t=="D":
-      self.extras="#2 aorist & future passive (non-Q type)"
+      self.extras="#2 aorist &amp; future passive (non-Q type)"
     elif t=="V":
-      self.extras="labial aorist & future passive"
+      self.extras="labial aorist &amp; future passive"
     elif t=="S":
-      self.extras="dental aorist & future passive + ζ"
+      self.extras="dental aorist &amp; future passive + ζ"
     elif t=="Q":
-      self.extras="guttural aorist & future passive"
+      self.extras="guttural aorist &amp; future passive"
     else:
       raise IndexError("invalid aorist verb type code:%s"%self.typeCode)
 

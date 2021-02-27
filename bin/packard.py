@@ -61,13 +61,19 @@ class Packard:
     else:
       raise IndexError("Invalid number in code %s"%tricode)
 
-    if tricode[2]=="M":
-      out["gender"]="Masculine"
-    elif tricode[2]=="F":
-      out["gender"]="Feminine"
-    elif tricode[2]=="N":
-      out["gender"]="Neutral"
+    """
+      looks like some entry lack gender.
+    """
+    if len(tricode)==3:
+      if tricode[2]=="M":
+        out["gender"]="Masculine"
+      elif tricode[2]=="F":
+        out["gender"]="Feminine"
+      elif tricode[2]=="N":
+        out["gender"]="Neutral"
+      else:
+        raise IndexError("Invalid gender in code %s"%tricode)
     else:
-      raise IndexError("Invalid gender in code %s"%tricode)
+      out["gender"]="Unknown"
 
     return(out)

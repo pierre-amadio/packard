@@ -21,6 +21,7 @@
  <body>
   {% for entry in allCodes %}
   <entryFree sortKey="{{entry.morphcode}}">
+   <title><hi rend="bold">{{entry.morphcode}}</hi></title><br>
    <def>{{entry.definition}}</def>
   </entryFree>
   {% endfor -%}

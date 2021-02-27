@@ -5,7 +5,7 @@
 
 
 https://wiki.crosswire.org/TEI_Dictionaries
-
+```
 1) generate a list of morphcode from the LXX's osis file.
 ./bin/extractCode.py /home/melmoth/dev/LXX/lxx.osis.xml > code.txt
 
@@ -24,4 +24,4 @@ rm -rf mod
 mkdir packard 
 /usr/local/sword/bin/tei2mod  packard packard.tei.xml -z 
 
-
+```

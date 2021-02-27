@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <TEI xmlns="http://www.crosswire.org/2013/TEIOSIS/namespace"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.crosswire.org/2013/TEIOSIS/namespace
+                          http://www.crosswire.org/OSIS/teiP5osis.2.5.0.xsd">
+<teiHeader>
+ <fileDesc>
+  <titleStmt>
+   <title>A title statement about the electronic text</title>
+  </titleStmt>
+  <publicationStmt>
+   <p>Information on the publication of the electronic text.</p>
+  </publicationStmt>
+  <sourceDesc>
+   <p>A bibliographic description of the source for the electronic text.</p>
+  </sourceDesc>
+ </fileDesc>
+</teiHeader>
+
+<text>
+ <body>
+  {% for entry in allCodes %}
+  <entryFree sortKey="{{entry.morphcode}}">
+   <def>{{entry.definition}}</def>
+  </entryFree>
+  {% endfor -%}
+ </body>
+</text>
+</TEI>

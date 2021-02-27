@@ -83,7 +83,7 @@ class Noun(Packard):
       some entry have what looks like incomplete parse code.
       let s try to cope with them
     """
-    if self.typeCode in ["A","AAN","D","G","G/D","N","S","N M","SF","SM","SN"]:
+    if self.parseCode in ["A","AAN","D","G","G/D","N","S","N M","SF","SM","SN"]:
       self.extras+=", unparsable code: %s"%self.rawCode 
       return 
 

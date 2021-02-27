@@ -78,6 +78,15 @@ class Noun(Packard):
         self.thirdDeclension()
       else:
         raise IndexError("Wrong declension type for code:%s"%self.typeCode)
+
+    """
+      some entry have what looks like incomplete parse code.
+      let s try to cope with them
+    """
+    if self.typeCode in ["A","AAN","D","G","G/D","N","S","N M","SF","SM","SN"]:
+      self.extras+=", unparsable code: %s"%self.rawCode 
+      return 
+
     t=super().parseTriCode(self.parseCode)
     self.case=t["case"]
     self.number=t["number"]

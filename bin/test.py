@@ -24,9 +24,11 @@ def instanciate(code):
 
 #code="V1I-IMI3P"
 #code="A1C-NSMC"
-#print(code)
-#a=instanciate(code)
-#print(a.desc())
+code="C+RDNPM"
+print(code)
+a=instanciate(code)
+print(a.desc())
+sys.exit()
 
 #code="A1-APF"
 #a=instanciate(code)

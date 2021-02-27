@@ -19,6 +19,15 @@ class Packard:
     self.rawCode = rawcode
     test=re.search("^(.*)-(.*)$",self.rawCode)
 
+    if not test:
+      """
+        so the raw code does not looke aaa-aaaa
+        may be it is one of the undocumented C+ conjonction code such as C+RDGSM
+      """
+      if re.search("^C\+.*",self.rawCode):
+        self.wordType="conjunction"
+        return
+
 
     if not test and len(rawcode)>1:
       raise IndexError("invalid rawcode:%s"%self.rawCode)

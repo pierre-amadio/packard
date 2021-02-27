@@ -13,3 +13,6 @@
 3) get description for all code:
 ./bin/allentry.py  code.txt > list.txt
 
+TODO:
+read https://wiki.crosswire.org/TEI_Dictionaries
+

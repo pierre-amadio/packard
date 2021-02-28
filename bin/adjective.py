@@ -24,9 +24,11 @@ TODO what about the following in isa 56.5
 """
 
 from packard import *
+from jinja2 import Template, FileSystemLoader, Environment
 
 class Adjective(Packard):
-  declension=None
+  declensionCode=None
+  declensionLabel=None
   extras=None
   case=None
   number=None
@@ -34,6 +36,7 @@ class Adjective(Packard):
   irregularDegree=None
 
   def firstDeclension(self):
+    self.declensionLabel="1st/2nd"
     if len(self.typeCode)==2:
       self.extras="-ος -η -ον pattern endings"
     else:
@@ -56,6 +59,7 @@ class Adjective(Packard):
 
   def thirdDeclension(self):
     self.extras=""
+    self.declensionLabel="3rd"
     """
       TODO: A3E,H,N,U,C  
       indicate the kind of third declension
@@ -64,8 +68,7 @@ class Adjective(Packard):
   def parseRawCode(self):
     self.wordType="Adjective"
     if len(self.typeCode)==1:
-      self.extras="unknown"
-      #raise IndexError("incomplete adjective code:%s"%self.typeCode)
+      self.declensionLabel="undefine"
     else:
       self.declension=int(self.typeCode[1])
       if self.declension==1:
@@ -88,17 +91,12 @@ class Adjective(Packard):
     self.number=code["number"]
     self.gender=code["gender"]
 
+
   def desc(self):
-    out="Adjective\n"
-    if self.declension==1:
-      out+="1st/2nd declension: "
-    else:
-      if self.declension!=None:
-        out+="3rd declension: "
-    out+=self.extras+"\n"
-    if self.irregularDegree:
-      out+="irregular %s \n"%self.irregularDegree
-    out+="%s / %s / %s"%(self.case,self.gender,self.number)
+   file_loader = FileSystemLoader('templates')
+   env = Environment(loader=file_loader)
+   template = env.get_template('adjective.xml')
+   out=template.render(entry=self)
+   return out
 
 
-    return(out)

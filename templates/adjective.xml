@@ -1,5 +1,6 @@
-Part of speech:Noun.
-{% if entry.declension %}declension:{{entry.declension}} {% else %} indeclinable {% endif %} 
+part of speech:Adjective
+{% if entry.declensionLabel %}declension:{{entry.declensionLabel}} {% else %} indeclinable {% endif %}
+{% if entry.irregularDegree %}{{entry.irregularDegree}}{% endif %}
 {% if entry.extras %}{{entry.extras}}{% endif %}
 {% if entry.case %}case:{{entry.case}}{% endif %}
 {% if entry.number %}number:{{entry.number}}{% endif %}

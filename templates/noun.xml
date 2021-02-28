@@ -1,0 +1,6 @@
+<p>part of speech Noun.</p>
+<p>{% if entry.declension %}declension:{{entry.declension}} {% else %} indeclinable {% endif %} </p>
+{% if entry.extras %}<p>{{entry.extras}}</p>{% endif %}
+{% if entry.case %}<p>case:{{entry.case}}</p>{% endif %}
+{% if entry.gender %}<p>gender:{{entry.gender}}</p>{% endif %}
+{% if entry.number %}<p>number:{{entry.number}}</p>{% endif %}

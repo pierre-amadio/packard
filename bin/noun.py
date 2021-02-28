@@ -16,6 +16,7 @@
 """
 
 from packard import *
+from jinja2 import Template, FileSystemLoader, Environment
 
 class Noun(Packard):
   declension=None
@@ -93,6 +94,13 @@ class Noun(Packard):
     self.gender=t["gender"]
 
   def desc(self):
+    file_loader = FileSystemLoader('templates')
+    env = Environment(loader=file_loader)
+    template = env.get_template('noun.xml')
+    out=template.render(entry=self)
+    return out
+
+  def olddesc(self):
     out="Noun\n"
     if self.declension:
       out+="%s declension\n"%self.declension

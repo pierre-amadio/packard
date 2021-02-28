@@ -39,6 +39,8 @@ Future Stems
 TODO: verb code can be of the form V- (V-IMI1P  imperfect middle  indicative 1(person?) plural)
 """
 from packard import *
+from jinja2 import Template, FileSystemLoader, Environment
+
 import re
 
 class Verb(Packard):
@@ -215,7 +217,7 @@ class Verb(Packard):
         self.person=self.parseCode[3]
         n=self.parseCode[4]
         if n=="S":
-          self.number="single"
+          self.number="singular"
         elif n=="D":
           self.number="dual"
         elif n=="P":
@@ -226,7 +228,16 @@ class Verb(Packard):
 
     #print("verb=",self.typeCode,self.parseCode)
 
+
   def desc(self):
+    file_loader = FileSystemLoader('templates')
+    env = Environment(loader=file_loader)
+    template = env.get_template('verb.xml')
+    out=template.render(entry=self)
+    return out
+
+
+  def olddesc(self):
     out="Verb"
     out+="stem:%s\n"%self.stem
     out+="extras:%s\n"%self.extras
@@ -238,5 +249,3 @@ class Verb(Packard):
     out+="participle:%s\n"%self.participle
     out+="case:%s number:%s gender:%s"%(self.case,self.number,self.gender)
     return(out)
-
-

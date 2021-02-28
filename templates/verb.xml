@@ -1,0 +1,12 @@
+part of speech:verb
+{% if entry.stem %}stem:{{entry.stem}}{% endif %}
+{% if entry.augment %}augment{% endif %}
+{% if entry.participle %}participle{% endif %}
+{% if entry.tense %}tense:{{entry.tense}}{% endif %}
+{% if entry.voice %}voice:{{entry.voice}}{% endif %}
+{% if entry.mood %}mood:{{entry.mood}}{% endif %}
+{% if entry.extras %}{{entry.extras}}{% endif %}
+{% if entry.case %}case:{{entry.case}}{% endif %}
+{% if entry.person %}person:{{entry.person}}{% endif %}
+{% if entry.number %}number:{{entry.number}}{% endif %}
+{% if entry.gender %}gender:{{entry.gender}}{% endif %}

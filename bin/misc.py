@@ -20,7 +20,7 @@ class Misc(Packard):
   number=None
   gender=None
 
-  def number(self):
+  def handleNumber(self):
     """
       strangely enough, some "indeclinable" number have declension information.
     """
@@ -44,7 +44,7 @@ class Misc(Packard):
       self.wordType="interjection"
     elif t=="M":
       self.wordType="indeclinable number"
-      self.number()
+      self.handleNumber()
     elif t=="P":
       self.wordType="preposition"
     elif t=="D":

@@ -20,7 +20,7 @@ https://wiki.crosswire.org/TEI_Dictionaries
  xmllint --noout --schema teiP5osis.2.5.0.xsd  packard.tei.xml
 
 5) build the module:
-rm -rf mod
+rm -rf packard 
 mkdir packard 
 /usr/local/sword/bin/tei2mod  packard packard.tei.xml -z 
 

@@ -10,6 +10,8 @@ RX = O(/STIS
 """
 
 from packard import *
+from jinja2 import Template, FileSystemLoader, Environment
+
 
 class Pronoun(Packard):
   extras=None
@@ -42,6 +44,14 @@ class Pronoun(Packard):
     self.gender=t["gender"]
 
   def desc(self):
+    file_loader = FileSystemLoader('templates')
+    env = Environment(loader=file_loader)
+    template = env.get_template('pronoun.xml')
+    out=template.render(entry=self)
+    return out
+
+
+  def olddesc(self):
     out="Pronoun\n"
     out+=self.extras+"\n"
     out+="%s / %s / %s"%(self.case,self.gender,self.number)

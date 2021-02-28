@@ -1,5 +1,4 @@
-part of speech:noun.
-{% if entry.declension %}declension:{{entry.declension}} {% else %} indeclinable {% endif %} 
+part of speech: pronoun
 {% if entry.extras %}{{entry.extras}}{% endif %}
 {% if entry.case %}case:{{entry.case}}{% endif %}
 {% if entry.number %}number:{{entry.number}}{% endif %}

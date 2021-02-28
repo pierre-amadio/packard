@@ -35,5 +35,5 @@ class Misc(Packard):
       raise IndexError("invalid misc code:%s"%self.typeCode)
 
   def desc(self):
-    out="<p>%s</p>"%self.wordType
+    out="<p>part of speech:%s</p>"%self.wordType
     return out

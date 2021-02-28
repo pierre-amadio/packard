@@ -11,9 +11,26 @@ TODO: conjonction can be followed by stuff: C+RPDS
 """
 
 from packard import *
+import re
+from jinja2 import Template, FileSystemLoader, Environment
 
 class Misc(Packard):
   extras=None
+  case=None
+  number=None
+  gender=None
+
+  def number(self):
+    """
+      strangely enough, some "indeclinable" number have declension information.
+    """
+    test=re.search("M-(...)",self.rawCode)
+    if test:
+      self.parseCode=test.group(1)
+      t=super().parseTriCode(self.parseCode)
+      self.case=t["case"]
+      self.number=t["number"]
+      self.gender=t["gender"]
 
   def parseRawCode(self):
     if len(self.typeCode)!=1:
@@ -27,6 +44,7 @@ class Misc(Packard):
       self.wordType="interjection"
     elif t=="M":
       self.wordType="indeclinable number"
+      self.number()
     elif t=="P":
       self.wordType="preposition"
     elif t=="D":
@@ -35,5 +53,9 @@ class Misc(Packard):
       raise IndexError("invalid misc code:%s"%self.typeCode)
 
   def desc(self):
-    out="part of speech:%s"%self.wordType
+    file_loader = FileSystemLoader('templates')
+    env = Environment(loader=file_loader)
+    template = env.get_template('misc.xml')
+    out=template.render(entry=self)
     return out
+

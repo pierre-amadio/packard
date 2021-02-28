@@ -1,5 +1,4 @@
-part of speech:noun.{% if entry.declension %}
-declension:{{entry.declension}} {% endif %}{% if entry.extras %}
+part of speech: {{entry.wordType}}{% if entry.extras %}
 {{entry.extras}} {% endif %}{% if entry.case %}
 case:{{entry.case}} {% endif %}{% if entry.number %}
 number:{{entry.number}} {% endif %}{% if entry.gender %}

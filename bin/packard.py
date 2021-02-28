@@ -27,6 +27,13 @@ class Packard:
       if re.search("^C\+.*",self.rawCode):
         self.wordType="conjunction"
         return
+      """
+        may be it is one of the following: ["RA+A","RA+AASN","RD+NGSM","RI","RI-D","RP+XNS"]
+      """
+      if self.rawCode in ["RA+A","RA+AASN","RD+NGSM","RI","RI-D","RP+XNS"]:
+        self.typeCode=self.rawCode[0:2]
+        self.parseRawCode()
+        return 
 
 
     if not test and len(rawcode)>1:

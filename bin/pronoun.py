@@ -38,10 +38,11 @@ class Pronoun(Packard):
       self.extras="ὅστις"
     else:
       raise IndexError("invalid pronoun code:%s"%self.typeCode)
-    t=super().parseTriCode(self.parseCode)
-    self.case=t["case"]
-    self.number=t["number"]
-    self.gender=t["gender"]
+    if self.parseCode:
+      t=super().parseTriCode(self.parseCode)
+      self.case=t["case"]
+      self.number=t["number"]
+      self.gender=t["gender"]
 
   def desc(self):
     file_loader = FileSystemLoader('templates')

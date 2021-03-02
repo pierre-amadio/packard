@@ -1,5 +1,5 @@
-<lb/>Part of speech: {{entry.wordType}}{% if entry.extras %}
+<lb/><hi rend="italic">Part of speech:</hi>{{entry.wordType}}{% if entry.extras %}
 <lb/>{{entry.extras}} {% endif %}{% if entry.case %}
-<lb/>Case:{{entry.case}} {% endif %}{% if entry.number %}
-<lb/>Number:{{entry.number}} {% endif %}{% if entry.gender %}
-<lb/>Gender:{{entry.gender}} {% endif %}
+<lb/><hi rend="italic">Case:</hi>{{entry.case}} {% endif %}{% if entry.number %}
+<lb/><hi rend="italic">Number:</hi>{{entry.number}} {% endif %}{% if entry.gender %}
+<lb/><hi rend="italic">CGender:</hi>{{entry.gender}} {% endif %}

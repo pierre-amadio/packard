@@ -1,6 +1,6 @@
-<lb/>Part of speech:noun.{% if entry.declension %}
-<lb/>Declension:{{entry.declension}} {% endif %}{% if entry.extras %}
+<lb/><hi rend="italic">Part of speech:</hi>noun.{% if entry.declension %}
+<lb/><hi rend="italic">Declension:</hi>{{entry.declension}} {% endif %}{% if entry.extras %}
 <lb/>{{entry.extras}} {% endif %}{% if entry.case %}
-<lb/>Case:{{entry.case}} {% endif %}{% if entry.number %}
-<lb/>Number:{{entry.number}} {% endif %}{% if entry.gender %}
-<lb/>Gender:{{entry.gender}} {% endif %}
+<lb/><hi rend="italic"></hi>Case:{{entry.case}} {% endif %}{% if entry.number %}
+<lb/><hi rend="italic"></hi>Number:{{entry.number}} {% endif %}{% if entry.gender %}
+<lb/><hi rend="italic"></hi>Gender:{{entry.gender}} {% endif %}

@@ -1,7 +1,7 @@
-<lb/>Part of speech:adjective {% if entry.declensionLabel %}
-<lb/>Declension:{{entry.declensionLabel}} {% else %}indeclinable{% endif %}{% if entry.irregularDegree %}
+<lb/><hi rend="italic">Part of speech:</hi>adjective {% if entry.declensionLabel %}
+<lb/><hi rend="italic">Declension:</hi>{{entry.declensionLabel}} {% else %}indeclinable{% endif %}{% if entry.irregularDegree %}
 <lb/>{{entry.irregularDegree}}{% endif %}{% if entry.extras %}
 <lb/>{{entry.extras}} {% endif %}{% if entry.case %}
-<lb/>Case:{{entry.case}}{% endif %}{% if entry.number %}
-<lb/>Number:{{entry.number}} {% endif %}{% if entry.gender %}
-<lb/>Gender:{{entry.gender}}{% endif %}
+<lb/><hi rend="italic">Case:{{entry.case}}</hi>{% endif %}{% if entry.number %}
+<lb/><hi rend="italic">Number:{{entry.number}}</hi>{% endif %}{% if entry.gender %}
+<lb/><hi rend="italic">Gender:{{entry.gender}}</hi>{% endif %}

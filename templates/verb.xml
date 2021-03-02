@@ -1,12 +1,12 @@
-<lb/>Part of speech:verb {% if entry.stem %}
-<lb/>Stem:{{entry.stem}} {% endif %}{% if entry.augment %}
+<lb/><hi rend="italic">Part of speech:</hi>verb {% if entry.stem %}
+<lb/><hi rend="italic">Stem:</hi>{{entry.stem}} {% endif %}{% if entry.augment %}
 <lb/>Augment {% endif %}{% if entry.participle %}
 <lb/>Participle {% endif %}{% if entry.tense %}
-<lb/>Tense:{{entry.tense}} {% endif %}{% if entry.voice %}
-<lb/>Voice:{{entry.voice}} {% endif %}{% if entry.mood %}
-<lb/>Mood:{{entry.mood}} {% endif %}{% if entry.extras %}
+<lb/><hi rend="italic">Tense:</hi>{{entry.tense}} {% endif %}{% if entry.voice %}
+<lb/><hi rend="italic">Voice:</hi>{{entry.voice}} {% endif %}{% if entry.mood %}
+<lb/><hi rend="italic">Mood:</hi>{{entry.mood}} {% endif %}{% if entry.extras %}
 <lb/>{{entry.extras}} {% endif %}{% if entry.case %}
-<lb/>Case:{{entry.case}} {% endif %}{% if entry.person %}
-<lb/>Person:{{entry.person}} {% endif %}{% if entry.number %}
-<lb/>Number:{{entry.number}} {% endif %}{% if entry.gender %}
-<lb/>Gender:{{entry.gender}} {% endif %}
+<lb/><hi rend="italic">Case:</hi>{{entry.case}} {% endif %}{% if entry.person %}
+<lb/><hi rend="italic">Person:</hi>{{entry.person}} {% endif %}{% if entry.number %}
+<lb/><hi rend="italic">Number:</hi>{{entry.number}} {% endif %}{% if entry.gender %}
+<lb/><hi rend="italic">Gender:</hi>{{entry.gender}} {% endif %}

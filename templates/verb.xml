@@ -1,12 +1,12 @@
-part of speech:verb {% if entry.stem %}
-stem:{{entry.stem}} {% endif %}{% if entry.augment %}
-augment {% endif %}{% if entry.participle %}
-participle {% endif %}{% if entry.tense %}
-tense:{{entry.tense}} {% endif %}{% if entry.voice %}
-voice:{{entry.voice}} {% endif %}{% if entry.mood %}
-mood:{{entry.mood}} {% endif %}{% if entry.extras %}
-{{entry.extras}} {% endif %}{% if entry.case %}
-case:{{entry.case}} {% endif %}{% if entry.person %}
-person:{{entry.person}} {% endif %}{% if entry.number %}
-number:{{entry.number}} {% endif %}{% if entry.gender %}
-gender:{{entry.gender}} {% endif %}
+<lb/>part of speech:verb {% if entry.stem %}
+<lb/>stem:{{entry.stem}} {% endif %}{% if entry.augment %}
+<lb/>augment {% endif %}{% if entry.participle %}
+<lb/>participle {% endif %}{% if entry.tense %}
+<lb/>tense:{{entry.tense}} {% endif %}{% if entry.voice %}
+<lb/>voice:{{entry.voice}} {% endif %}{% if entry.mood %}
+<lb/>mood:{{entry.mood}} {% endif %}{% if entry.extras %}
+<lb/>{{entry.extras}} {% endif %}{% if entry.case %}
+<lb/>case:{{entry.case}} {% endif %}{% if entry.person %}
+<lb/>person:{{entry.person}} {% endif %}{% if entry.number %}
+<lb/>number:{{entry.number}} {% endif %}{% if entry.gender %}
+<lb/>gender:{{entry.gender}} {% endif %}

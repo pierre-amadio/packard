@@ -6,13 +6,13 @@
 <teiHeader>
  <fileDesc>
   <titleStmt>
-   <title>A title statement about the electronic text</title>
+   <title>Packard's Morphological Analysis Codes</title>
   </titleStmt>
   <publicationStmt>
-   <p>Information on the publication of the electronic text.</p>
+   <p>https://github.com/pierre-amadio/packard</p>
   </publicationStmt>
   <sourceDesc>
-   <p>A bibliographic description of the source for the electronic text.</p>
+   <p>Based on description in  http://ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/*Morph-Coding </p>
   </sourceDesc>
  </fileDesc>
 </teiHeader>

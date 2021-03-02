@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
 """
+This a virtual class for all morphcode object.
+It implement a constructor and a method to parse "tricode" (case/number/gender)
+
+All morphcode looks like the following:
 TTT-PPPPPP
  |     |______ "PARSE" CODE (up to 6 columns, as needed, to parse each form) 
  |_____________"TYPE" CODE (3 columns maximum, to identify part of speech)

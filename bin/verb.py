@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """
-https://www.translatum.gr/converter/beta-code.htm
-
 V = Verbs (up to 3 cols.)
 (I in col.3 = augmented, whatever the stem)
 "Progressive" Stems
@@ -35,8 +33,6 @@ Future Stems
      VF2 = liquid type(+ zeta)
      VF3 = E)LAU/NW type
      VFX = future perfect
-
-TODO: verb code can be of the form V- (V-IMI1P  imperfect middle  indicative 1(person?) plural)
 """
 from packard import *
 from jinja2 import Template, FileSystemLoader, Environment
@@ -224,10 +220,6 @@ class Verb(Packard):
           self.number="plural"
         else:
           raise IndexError("invalid number code for %s"%self.parseCode)
-
-
-    #print("verb=",self.typeCode,self.parseCode)
-
 
   def desc(self):
     file_loader = FileSystemLoader('templates')

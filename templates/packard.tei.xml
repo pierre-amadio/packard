@@ -20,6 +20,9 @@
    <p>Build script: https://github.com/pierre-amadio/packard</p>
   </sourceDesc>
  </fileDesc>
+  <revisionDesc>
+    <change when="2021-03-01">Initial build in Tei</change>
+  </revisionDesc>
 </teiHeader>
 
 <text>

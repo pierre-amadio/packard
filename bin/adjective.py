@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """
-https://www.translatum.gr/converter/beta-code.htm
-
 A = Adjective (up to 3 cols.)
   A1 = -OS/-H/-ON pattern endings
      A1A = -OS/-A/-ON

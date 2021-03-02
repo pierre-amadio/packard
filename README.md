@@ -2,9 +2,8 @@
  Packard's Morphological Analysis Codes module for the Sword engine.
 
  This is based on : http://ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/*Morph-Coding */
+ You will need a complete LXX osis file (that can be built from https://github.com/pierre-amadio/LXX )
 
-
-https://wiki.crosswire.org/TEI_Dictionaries
 ```
 1) generate a list of morphcode from the LXX's osis file.
 ./bin/extractCode.py /home/melmoth/dev/LXX/lxx.osis.xml > code.txt

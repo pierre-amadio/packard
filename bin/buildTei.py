@@ -7,7 +7,10 @@ from misc import *
 from pronoun import *
 import sys
 from jinja2 import Template, FileSystemLoader, Environment
-
+"""
+ This script build the xml dictionary based on a list of code to handle included 
+ in the file used as argument.
+"""
 inputFile=sys.argv[1]
 
 def instanciate(code):
@@ -36,9 +39,7 @@ with open(inputFile) as file_in:
     entry["morphcode"]=line
     try:
       a=instanciate(line)
-      #print(a.desc())
       entry["definition"]=a.desc()
-      #print(" ")
     except (IndexError,ValueError,TypeError):
       entry["definition"]="none"
     allCodes.append(entry)

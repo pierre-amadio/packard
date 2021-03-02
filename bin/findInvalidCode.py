@@ -7,7 +7,10 @@ from misc import *
 from pronoun import * 
 from bs4 import BeautifulSoup
 import sys
-
+"""
+This script scan all the existing morphcode in the osis file given as argument
+it generate a report of all code that cannot be parsed correctly.
+"""
 def instanciate(code):
   t=code[0]
   if t=="N":
@@ -22,15 +25,8 @@ def instanciate(code):
     return Misc(code)
   raise IndexError("Invalid code:%s"%code)
 
-#osisLXX="/home/melmoth/dev/LXX/20210223-lxx.osis.xml"
-
 pb={}
-
-#osisLXX="/home/melmoth/dev/LXX/lxx.osis.xml"
-
 osisLXX=sys.argv[1]
-
-
 with open(osisLXX) as fp:
   soup = BeautifulSoup(fp, 'xml')
   for w in soup.find_all("w"):

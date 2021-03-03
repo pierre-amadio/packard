@@ -2,6 +2,6 @@
 <lb/><hi rend="italic">Declension:</hi> {{entry.declensionLabel}} {% else %}indeclinable{% endif %}{% if entry.irregularDegree %}
 <lb/>{{entry.irregularDegree}}{% endif %}{% if entry.extras %}
 <lb/>{{entry.extras}} {% endif %}{% if entry.case %}
-<lb/><hi rend="italic">Case:{{entry.case}}</hi> {% endif %}{% if entry.number %}
-<lb/><hi rend="italic">Number:{{entry.number}}</hi> {% endif %}{% if entry.gender %}
-<lb/><hi rend="italic">Gender:{{entry.gender}}</hi> {% endif %}
+<lb/><hi rend="italic">Case:</hi> {{entry.case}} {% endif %}{% if entry.number %}
+<lb/><hi rend="italic">Number:</hi> {{entry.number}} {% endif %}{% if entry.gender %}
+<lb/><hi rend="italic">Gender:</hi> {{entry.gender}} {% endif %}

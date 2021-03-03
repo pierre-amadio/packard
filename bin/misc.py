@@ -7,7 +7,6 @@ M = Indeclinable Number
 P = Preposition
 D = Adverb
 
-TODO: conjonction can be followed by stuff: C+RPDS
 """
 
 from packard import *

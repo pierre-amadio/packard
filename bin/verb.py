@@ -187,7 +187,7 @@ class Verb(Packard):
     elif self.parseCode[2]=="D":
       self.mood="imperative"
     elif self.parseCode[2]=="S":
-      self.mood="subjonctive"
+      self.mood="subjunctive"
     elif self.parseCode[2]=="O":
       self.mood="optative"
     elif self.parseCode[2]=="N":

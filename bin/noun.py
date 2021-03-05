@@ -100,11 +100,4 @@ class Noun(Packard):
     out=template.render(entry=self)
     return out
 
-  def olddesc(self):
-    out="Noun\n"
-    if self.declension:
-      out+="%s declension\n"%self.declension
-    out+=self.extras+"\n"
-    out+="%s / %s / %s"%(self.case,self.gender,self.number)
-    return out
 

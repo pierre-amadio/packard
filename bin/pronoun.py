@@ -52,10 +52,4 @@ class Pronoun(Packard):
     return out
 
 
-  def olddesc(self):
-    out="Pronoun\n"
-    out+=self.extras+"\n"
-    out+="%s / %s / %s"%(self.case,self.gender,self.number)
-    return out
-
 

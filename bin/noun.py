@@ -50,7 +50,7 @@ class Noun(Packard):
         Only N2N
       """
       if self.typeCode=="N2N":
-        self.extras="neuters (in -ον)"
+        self.extras="neuter (in -ον)"
       else:
         raise IndexError("Invalid noun code: %s"%self.typeCode)
 

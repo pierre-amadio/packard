@@ -27,9 +27,9 @@ class Packard:
         so the raw code does not looke aaa-aaaa
         may be it is one of the undocumented C+ conjonction code such as C+RDGSM
       """
-      if re.search("^C\+.*",self.rawCode):
-        self.wordType="conjunction"
-        return
+      #if re.search("^C\+.*",self.rawCode):
+      #  self.wordType="conjunction"
+      #  return
       """
         may be it is one of the following: ["RA+A","RA+AASN","RD+NGSM","RI","RI-D","RP+XNS"]
       """
@@ -89,7 +89,7 @@ class Packard:
       elif tricode[2]=="F":
         out["gender"]="Feminine"
       elif tricode[2]=="N":
-        out["gender"]="Neutral"
+        out["gender"]="Neuter"
       else:
         raise IndexError("Invalid gender in code %s"%tricode)
     else:

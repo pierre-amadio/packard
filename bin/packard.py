@@ -27,9 +27,9 @@ class Packard:
         so the raw code does not looke aaa-aaaa
         may be it is one of the undocumented C+ conjonction code such as C+RDGSM
       """
-      #if re.search("^C\+.*",self.rawCode):
-      #  self.wordType="conjunction"
-      #  return
+      if re.search("^C\+.*",self.rawCode):
+        self.wordType="conjunction"
+        return
       """
         may be it is one of the following: ["RA+A","RA+AASN","RD+NGSM","RI","RI-D","RP+XNS"]
       """
